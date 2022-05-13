@@ -34,6 +34,19 @@ class HashTable {
     return undefined
   }
 
+  values() {
+    let values = []
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          if (!values.includes(this.keyMap[i][j][1])) {
+            values.push(this.keyMap[i][j][1])
+          }
+        }
+      }
+    }
+    return values
+  }
 }
 
 const ht = new HashTable()
@@ -42,8 +55,9 @@ ht.set('secret', 'Zena likes icecream')
 ht.set('dog', 'food')
 ht.set('remote', 'controller')
 ht.set('marco', 'polo')
-ht.set('tommy', 'hilfiger')
 
 
-console.log(ht.get('dog'))
+
+
+console.log(ht.values())
 // console.log(ht)
