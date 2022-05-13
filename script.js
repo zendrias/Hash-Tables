@@ -47,6 +47,19 @@ class HashTable {
     }
     return values
   }
+  keys() {
+    let keys = []
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          if (!keys.includes(this.keyMap[i][j][1])) {
+            keys.push(this.keyMap[i][j][1])
+          }
+        }
+      }
+    }
+    return keys
+  }
 }
 
 const ht = new HashTable()
@@ -59,5 +72,5 @@ ht.set('marco', 'polo')
 
 
 
-console.log(ht.values())
+console.log(ht.keys())
 // console.log(ht)
