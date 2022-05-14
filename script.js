@@ -1,5 +1,5 @@
 class HashTable {
-  constructor(size = 5) {
+  constructor(size = 59) {
     this.keyMap = new Array(size);
   }
 
@@ -61,16 +61,3 @@ class HashTable {
     return keys
   }
 }
-
-const ht = new HashTable()
-
-ht.set('secret', 'Zena likes icecream')
-ht.set('dog', 'food')
-ht.set('remote', 'controller')
-ht.set('marco', 'polo')
-
-
-
-
-console.log(ht.keys())
-// console.log(ht)
