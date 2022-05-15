@@ -61,3 +61,22 @@ class HashTable {
     return keys
   }
 }
+
+
+class HashTable2 {
+  constructor(length = 59) {
+    this.keyMap = new Array(length)
+  }
+
+  _hash(key) {
+
+  }
+
+  set() {
+
+  }
+
+  get() {
+
+  }
+}
