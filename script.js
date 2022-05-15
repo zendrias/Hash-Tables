@@ -69,14 +69,43 @@ class HashTable2 {
   }
 
   _hash(key) {
-
+    let total = 0;
+    let prime = 31;
+    for (let i = 0; i < Math.min(key.length, 100); i++) {
+      let char = key[i];
+      let value = char.charCodeAt(0) - 96;
+      total = (total * prime + value) % this.keyMap.length;
+    }
+    return total;
   }
 
-  set() {
-
+  set(key, value) {
+    const index = this._hash(key);
+    this.keyMap[index] ? (
+      this.keyMap[index].push([key, value])
+    ) : (
+      this.keyMap[index] = [[value, key]])
+    return true
   }
 
-  get() {
-
+  get(key) {
+    const index = this._hash(key)
+    if (this.keyMap[index]) {
+      for (let i = 0; i < this.keyMap[index].length; i++) {
+        if (this.keyMap[index][i][0] === key) return this.keyMap[index][i][1]
+      }
+    }
+    return undefined
   }
 }
+
+
+const ht2 = new HashTable2(5)
+
+ht2.set('kevin', 'guzman')
+ht2.set('gary', 'vee')
+ht2.set('grant', 'cardone')
+ht2.set('dave', 'ramsey')
+ht2.set('mr', 'wonderful')
+console.log(ht2.get('dave'))
+console.log(ht2)
